@@ -12,7 +12,7 @@ interface feddbackInter {
 
 function App(props: any) {
 	const [feedback, setFeedback] = useState(FeedbackData)
-  const deleteFeedback = (id:any) => { console.log("Numer to" , id)}
+  const deleteFeedback = (id:any) => {if( window.confirm("Ar U sure to delete this feedback??")) {setFeedback(feedback.filter((item) => item.id !== id))}}
 	return (
 		<>
 			<Header text={'allo dupa'}></Header>

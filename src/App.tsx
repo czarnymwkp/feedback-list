@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import Header from './components/Header'
+import FeedbackList from './components/FeedbackList'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import FeedbackData from './data/FeedbackData'
+
+interface feddbackInter {
+	id: number
+	rating: number
+	text: string
 }
 
-export default App;
+function App(props: any) {
+	const [feedback, setFeedback] = useState(FeedbackData)
+  const deleteFeedback = (id:any) => { console.log("Numer to" , id)}
+	return (
+		<>
+			<Header text={'allo dupa'}></Header>
+			<div className='container'>
+				<FeedbackList feedback={feedback} handleDelete={deleteFeedback} />
+			</div>
+		</>
+	)
+}
+
+export default App

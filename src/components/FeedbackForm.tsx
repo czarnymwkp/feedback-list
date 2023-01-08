@@ -4,7 +4,12 @@ import Button from './shared/Button'
 import RatingSelectComponent from './RatingSelectComponent'
 import { useState } from 'react'
 
-export default function FeedbackForm({ handleAdd }: { handleAdd: any }) {
+//context
+import { useContext } from 'react'
+import FeedbackContext from '../context/FeedbackContext'
+
+export default function FeedbackForm() {
+	const { feedback, addFeedback } = useContext(FeedbackContext)
 	const [text, setText] = useState('')
 	const [rating, setRating] = useState(0)
 	const [btnDisabled, setBtnDisabled] = useState(false)
@@ -30,7 +35,7 @@ export default function FeedbackForm({ handleAdd }: { handleAdd: any }) {
 				text: text,
 				rating: rating,
 			}
-			handleAdd(newFeedback)
+			addFeedback(newFeedback)
 			setText('')
 		}
 	}

@@ -1,7 +1,11 @@
 import React from 'react'
+import { useContext } from 'react'
 
-export default function FeedbackStats({ feedback }: { feedback: any }) {
+import FeedbackContext from '../context/FeedbackContext'
+
+export default function FeedbackStats() {
 	// usuing reduce function on array (acc -accumulat)
+	const { feedback } = useContext(FeedbackContext)
 	let avarage: any =
 		feedback.reduce((acc: number, currentValue: any) => {
 			return acc + currentValue.rating
